@@ -2,7 +2,7 @@
   "name": "cxpi",
   "apiVersion": "1.0.0",
   "author": "Nikolay",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "supported_analyzers": ["CXPI"],
   "target_os": ["windows", "linux", "mac"],
   "description": "Analyze CXPI protocol data",
