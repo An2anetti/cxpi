@@ -10,4 +10,5 @@
 5. Create a Github release
 6. Debug your hardware like you've never done before :)
 
-  v1.11.8
+
+v1.12.0
