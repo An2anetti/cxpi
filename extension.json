@@ -11,7 +11,16 @@
     "cxpi": {
       "type": "DigitalMeasurement",
       "entryPoint": "DigitalMeasurement.analyze",
-      "metrics": {}
+      "metrics": {
+  "message_count": {
+    "displayName": "Message Count",
+    "unit": "count"
+  },
+  "error_count": {
+    "displayName": "Error Count",
+    "unit": "count"
+  }
+}
     }
   }
 }
