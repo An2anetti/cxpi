@@ -1,26 +1,27 @@
 {
-  "name": "cxpi",
+  "version": "0.0.1",
   "apiVersion": "1.0.0",
   "author": "Nikolay",
-  "version": "1.0.0",
-  "supported_analyzers": ["CXPI"],
-  "target_os": ["windows", "linux", "mac"],
   "description": "Analyze CXPI protocol data",
-  "packages": [],
+  "name": "cxpi",
   "extensions": {
+    "cxpi": {
+      "type": "HighLevelAnalyzer",
+      "entryPoint": "DigitalMeasurement.analyze"
+    },
     "cxpi": {
       "type": "DigitalMeasurement",
       "entryPoint": "DigitalMeasurement.analyze",
       "metrics": {
-  "message_count": {
-    "displayName": "Message Count",
-    "unit": "count"
-  },
-  "error_count": {
-    "displayName": "Error Count",
-    "unit": "count"
-  }
-}
+        "CXPI": {
+          "name": "CXPI",
+          "notation": "N MHz"
+        },
+        "i2cBusUtilization": {
+          "name": "CXPI",
+          "notation": "N %"
+        }
+      }
     }
   }
 }
