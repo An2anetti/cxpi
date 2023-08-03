@@ -6,8 +6,6 @@
   "supported_analyzers": ["CXPI"],
   "target_os": ["windows", "linux", "mac"],
   "description": "Analyze CXPI protocol data",
-  "saleae_version": "1.2.0",
-  "python_version": "3.7",
   "packages": [],
   "extensions": {
     "cxpi": {
