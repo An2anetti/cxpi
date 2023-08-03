@@ -1,6 +1,6 @@
 {
   "name": "CXPI",
-  "version": "0.1",
+  "version": "0.0.1",
   "apiVersion": "1.0.0",
   "author": "Nikolay",
   "supported_analyzers": ["CXPI"],
