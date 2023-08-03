@@ -6,7 +6,7 @@
   "name": "cxpi",
   "extensions": {
     "cxpi": {
-      "type": "HighLevelAnalyzer",
+      "type": "DigitalMeasurement",
       "entryPoint": "DigitalMeasurement.analyze"
     },
     "cxpi": {
