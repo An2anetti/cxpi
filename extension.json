@@ -1,24 +1,24 @@
 {
-  "version": "1.12.0",
+  "version": "1.12.1",
   "apiVersion": "1.0.0",
   "author": "Nikolay",
   "description": "Analyze CXPI protocol data",
   "name": "cxpi",
   "extensions": {
-    "cxpi": {
-      "type": "DigitalMeasurement",
-      "entryPoint": "DigitalMeasurement.analyze"
+    "I2C EEPROM Reader": {
+      "type": "HighLevelAnalyzer",
+      "entryPoint": "I2cUtilities.Eeprom"
     },
-    "cxpi": {
+    "I2C clock speed measurement": {
       "type": "DigitalMeasurement",
-      "entryPoint": "DigitalMeasurement.analyze",
+      "entryPoint": "I2cUtilities.I2cClock",
       "metrics": {
-        "CXPI": {
-          "name": "CXPI",
+        "i2cClockSpeed": {
+          "name": "I2C Clock Speed",
           "notation": "N MHz"
         },
         "i2cBusUtilization": {
-          "name": "CXPI",
+          "name": "I2C Bus Utilization",
           "notation": "N %"
         }
       }
