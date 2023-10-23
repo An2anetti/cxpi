@@ -1,4 +1,7 @@
+# PacketMarkerAnalyzer.py
+
 from saleae.analyzers import HighLevelAnalyzer, AnalyzerFrame
+from enum import Enum
 
 class PacketMarkerState(Enum):
     STANDARD = 0
