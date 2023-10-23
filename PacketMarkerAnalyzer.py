@@ -1,5 +1,3 @@
-# PacketMarkerAnalyzer.py
-
 from saleae.analyzers import HighLevelAnalyzer, AnalyzerFrame
 from enum import Enum
 
