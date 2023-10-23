@@ -5,11 +5,11 @@
   "version": "0.0.7",
   "description": "PacketMarkerCXPI",
   "repository": "https://github.com/An2anetti/cxpi",
-  "main": "DigitalMeasurement.MyDigitalMeasurer",
+  "main": "DigitalMeasurement.Hla",
   "extensions": {
     "PacketMarker": {
       "type": "DigitalMeasurement",
-      "entryPoint": "DigitalMeasurement.MyDigitalMeasurer",
+      "entryPoint": "DigitalMeasurement.Hla",
       "metrics": {
         "metricKey": {
           "name": "Throughput",
