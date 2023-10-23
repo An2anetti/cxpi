@@ -9,7 +9,7 @@
   "extensions": {
     "PacketMarker": {
       "type": "DigitalMeasurement",
-      "entryPoint": "DigitalMeasurement.py",
+      "entryPoint": "DigitalMeasurement.Hla",
       "metrics": {
         "metricKey": {
           "name": "Throughput",
