@@ -2,16 +2,24 @@
   "name": "PacketMarker",
   "apiVersion": "1.0.0",
   "author": "Nikolay",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "PacketMarkerCXPI",
   "repository": "https://github.com/An2anetti/cxpi",
   "main": "DigitalMeasurement.py",
-  "extensions": [
-    {
-      "name": "PacketMarker",
-      "description": "PacketMarkerCXPI",
-      "version": "0.0.1",
-      "entrypoint": "DigitalMeasurement.py"
+  "extensions": {
+    "PacketMarker": {
+      "type": "DigitalMeasurement",
+      "entryPoint": "DigitalMeasurement.py",
+      "metrics": {
+        "metricKey": {
+          "name": "Throughput",
+          "notation": "TP"
+        },
+        "anotherMetricKey": {
+          "name": "Latency",
+          "notation": "LT"
+        }
+      }
     }
-  ]
+  }
 }
