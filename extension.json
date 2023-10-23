@@ -2,8 +2,16 @@
   "name": "PacketMarker",
   "apiVersion": "1.0.0",
   "author": "Nikolay",
-  "version": "0.0.1",
+  "version": "0.0.5",
   "description": "PacketMarkerCXPI",
   "repository": "https://github.com/An2anetti/cxpi",
-  "main": "DigitalMeasurement.py"
+  "main": "DigitalMeasurement.py",
+  "extensions": [
+    {
+      "name": "PacketMarker",
+      "description": "PacketMarkerCXPI",
+      "version": "0.0.1",
+      "entrypoint": "DigitalMeasurement.py"
+    }
+  ]
 }
