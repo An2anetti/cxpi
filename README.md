@@ -11,4 +11,4 @@
 6. Debug your hardware like you've never done before :)
 
 
-v2.2.3
+v.2.2.4
