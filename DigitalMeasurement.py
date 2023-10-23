@@ -1,52 +1,51 @@
-from saleae.data import GraphTimeDelta, GraphTime, GraphValue
+from saleae.analyzers import HighLevelAnalyzer, AnalyzerFrame, StringSetting, NumberSetting, ChoicesSetting
+from enum import Enum
 
-def analyze(cxpi):
-    # Получение данных из протокола CXPI
-    messages = cxpi['messages']
+class PacketMarkerState(Enum):
+    STANDARD = 0
+    NONSTANDARD = 1
 
-    # Инициализация переменных для обработки пакетов
-    packet = []
-    packet_start = False
+class PacketMarkerAnalyzer(HighLevelAnalyzer):
+    result_types = {
+        'packet_marker': {
+            'format': '{{data.packet_marker}}',
+            'unit': 'Marker'
+        }
+    }
 
-    # Итерация по сообщениям
-    for message in messages:
-        # Получение полей сообщения
-        channel = message['channel']
-        id = message['id']
-        data = message['data']
+    def __init__(self):
+        self.packet_duration = None
+        self.standard_packet_duration = 52  # Длительность стандартного пакета в микросекундах
+        self.nonstandard_packet_duration = 21  # Длительность нестандартного пакета в микросекундах
+        self.packet_state = None
 
-        # Обработка пакета
-        if packet_start:
-            # Добавление данных в пакет
-            packet.extend(data)
+    def add_packet_marker(self, start_time, end_time, state):
+        duration = end_time - start_time
+        packet_marker = 0 if state == PacketMarkerState.STANDARD else 1
+        self.frames.append(AnalyzerFrame(start_time, duration, 'packet_marker', {'packet_marker': packet_marker}))
 
-            # Проверка условия окончания пакета
-            if data[0] == 1:
-                # Обработка завершенного пакета
-                process_packet(packet)
-
-                # Сброс переменных пакета
-                packet = []
-                packet_start = False
+    def decode(self, frame):
+        if self.packet_duration is None:
+            self.packet_duration = frame.duration
+            self.packet_state = PacketMarkerState.STANDARD
+        elif frame.duration == self.packet_duration:
+            if self.packet_state != PacketMarkerState.STANDARD:
+                self.add_packet_marker(frame.start_time, frame.end_time, self.packet_state)
+                self.packet_state = PacketMarkerState.STANDARD
+        elif frame.duration == self.nonstandard_packet_duration:
+            if self.packet_state != PacketMarkerState.NONSTANDARD:
+                self.add_packet_marker(frame.start_time, frame.end_time, self.packet_state)
+                self.packet_state = PacketMarkerState.NONSTANDARD
         else:
-            # Проверка условия начала пакета
-            if data[0] == 0:
-                packet_start = True
-                packet.extend(data)
+            if self.packet_state is not None:
+                self.add_packet_marker(frame.start_time, frame.end_time, self.packet_state)
+                self.packet_state = None
 
-def process_packet(packet):
-    # Обработка завершенного пакета
-    # Здесь можно выполнить необходимые действия с данными пакета
-    # Например, распарсить поля пакета, проанализировать значения и т.д.
-    print(f"Processed packet: {packet}")
+# Здесь вы можете добавить свои собственные настройки, если необходимо
+settings = []
 
-# Регистрация анализатора
-cxpi_analyzer = {
-    'name': 'CXPI Analyzer',
-    'category': 'Other',
-    'software_version': '0.1',
-    'compatible_capture_modes': ['CXPI'],
-    'parse_live': False,
-    'parse_capture': True,
-    'analyze': analyze
-}
+# Создание экземпляра анализатора
+packet_marker_analyzer = PacketMarkerAnalyzer()
+
+# Запуск анализатора
+packet_marker_analyzer.run(settings)
