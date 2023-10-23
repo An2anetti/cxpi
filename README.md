@@ -10,5 +10,4 @@
 5. Create a Github release
 6. Debug your hardware like you've never done before :)
 
-
-v3.3.5
+v3.3.6
