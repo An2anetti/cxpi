@@ -1,5 +1,5 @@
 
-  # cxpi
+# cxpi
   
 ## Getting started
 
@@ -11,4 +11,4 @@
 6. Debug your hardware like you've never done before :)
 
 
-v1.12.2
+v2.00.0
