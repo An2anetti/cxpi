@@ -4,18 +4,6 @@
   "author": "Nikolay",
   "version": "0.0.1",
   "description": "PacketMarkerCXPI",
-  "repository": "https://github.com/An2anetti/cxpin",
-  "main": "DigitalMeasurement.py",
-  "extensions": {
-    "PacketMarker": {
-      "type": "DigitalMeasurement",
-      "entryPoint": "DigitalMeasurement.MyDigitalMeasurer",
-      "metrics": {
-        "metricKey": {
-          "name": "<metric_name>",
-          "notation": "<short_notation>"
-        }
-      }
-    }
-  }
+  "repository": "https://github.com/An2anetti/cxpi",
+  "main": "DigitalMeasurement.py"
 }
