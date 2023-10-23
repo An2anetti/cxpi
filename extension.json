@@ -2,14 +2,14 @@
   "name": "PacketMarker",
   "apiVersion": "1.0.0",
   "author": "Nikolay",
-  "version": "0.0.7",
+  "version": "0.0.9",
   "description": "PacketMarkerCXPI",
   "repository": "https://github.com/An2anetti/cxpi",
-  "main": "DigitalMeasurement.Hla",
+  "main": "DigitalMeasurement.py",
   "extensions": {
     "PacketMarker": {
       "type": "DigitalMeasurement",
-      "entryPoint": "DigitalMeasurement.Hla",
+      "entryPoint": "DigitalMeasurement.py",
       "metrics": {
         "metricKey": {
           "name": "Throughput",
